@@ -1,0 +1,13 @@
+@mixin flex-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-flow: column wrap;
+}
+@mixin text-transform {
+    text-decoration: none;
+    text-transform: uppercase;
+}

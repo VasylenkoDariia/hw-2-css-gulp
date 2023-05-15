@@ -1,0 +1,183 @@
+@import "./abstracts/reset";
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
+@import "./layout/navigation";
+@import "./layout/footer";
+
+// general settings
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 23px 28px;
+
+  &.container__header {
+    position: relative;
+    padding-bottom: 15px;
+  }
+}
+
+.blocks-title {
+  @include text-transform;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(78, 78, 78, 1);
+  padding: 25px 0;
+
+  &::before {
+    content: "- ";
+  }
+  &.first-title {
+    padding-top: 0;
+  }
+  @media (min-width: $tablet) {
+    font-size: 16px;
+  }
+}
+
+// -- main section --
+
+//recent posts section
+@media (min-width: $desktop) {
+  .recent-posts-wrapper {
+    @include flex-row;
+    justify-content: flex-start;
+    flex-basis: 48%;
+    gap: 2%;
+  }
+}
+.post-card {
+  &__title {
+    color: rgba(78, 78, 78, 1);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 30px;
+  }
+  &__meta {
+    color: rgba(124, 124, 124, 1);
+    font-size: 11px;
+    line-height: 20px;
+    padding-bottom: 10px;
+  }
+  &__description {
+    display: none;
+  }
+  &:last-child {
+    display: none;
+  }
+
+  @media (min-width: $tablet) {
+    @include flex-row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 25px;
+    flex-basis: 100%;
+
+    &__caption {
+      @include flex-column;
+      justify-content: flex-start;
+    }
+    &__description {
+      display: block;
+      font-size: 14px;
+      line-height: 26px;
+      color: rgba(92, 92, 92, 1);
+      max-width: 420px;
+    }
+    &:last-child {
+      display: flex;
+    }
+  }
+  @media (min-width: $desktop) {
+    flex-basis: 48%;
+    flex-flow: row nowrap;
+  }
+}
+
+//instagram section
+.socials-wrapper {
+  padding-bottom: 20px;
+
+  @media (min-width: $tablet) {
+    background-color: #f7f7f7;
+  }
+}
+.socials-titles {
+  &__title {
+    padding-top: 0;
+  }
+  &__link {
+    display: none;
+    a {
+      @include text-transform;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 22px;
+      color: rgba(78, 78, 78, 1);
+    }
+    a:hover {
+      cursor: pointer;
+      color: rgba(87, 164, 164, 1);
+    }
+
+    @media (min-width: $tablet) {
+      display: block;
+
+      &::after {
+        content: " -";
+      }
+    }
+  }
+  @media (min-width: $tablet) {
+    @include flex-row;
+    justify-content: space-between;
+    padding-top: 20px;
+  }
+}
+
+.instagram-posts {
+  &__photo {
+    @media (min-width: $tablet) {
+      max-width: 200px;
+      max-height: 200px;
+    }
+    @media (min-width: $bigTablet) {
+      max-width: 245px;
+      max-height: 245px;
+    }
+  }
+  @media (min-width: $tablet) {
+    @include flex-row;
+    justify-content: space-between;
+    flex-basis: 33%;
+  }
+}
+
+.insta-invisible {
+  display: none;
+
+  @media (min-width: $tablet) {
+    display: inline-block;
+  }
+}
+.insta-desktop {
+  display: none;
+
+  @media (min-width: $largeDesktop) {
+    display: inline-block;
+  }
+}
+
+.insta-large-desktop {
+  display: none;
+
+  @media (min-width: $extraLargeDesktop) {
+    display: inline-block;
+  }
+}
